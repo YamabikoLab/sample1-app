@@ -1,0 +1,85 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/docker-existing-docker-compose
+// If you want to run as a non-root user in the container, see .devcontainer/docker-compose.yml.
+{
+	"name": "Existing Docker Compose (Extend)",
+
+	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
+	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
+	"dockerComposeFile": [
+		"../docker-compose.yml",
+		"docker-compose.yml"
+	],
+
+	// The 'service' property is the name of the service for the container that VS Code should
+	// use. Update this value and .devcontainer/docker-compose.yml to the real service name.
+	"service": "sample1-app",
+
+	// The optional 'workspaceFolder' property is the path VS Code should open by default when
+	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
+	"workspaceFolder": "/usr/src/sample1_app",
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+        "files.encoding": "utf8",
+        "files.eol": "\n",
+		// ruby
+		"ruby.intellisense": "rubyLocate",
+		"ruby.locate": {
+		  "exclude": "{**/@(test|spec|tmp|.*),**/@(test|spec|tmp|.*)/**,**/*_spec.rb}",
+		  "include": "**/*.rb"
+		},
+		// ruby, rubocop
+		"ruby.useBundler": true, //run non-lint commands with bundle exec
+		"ruby.lint": {
+		  "rubocop": {
+			"useBundler": true // enable rubocop via bundler
+		  },
+		  "reek": {
+			"useBundler": true // enable reek via bundler
+		  }
+		},
+		"ruby.format": "rubocop", // use rubocop for formatting
+		"[ruby]": {
+		  "editor.defaultFormatter": "misogi.ruby-rubocop"
+		},
+		"ruby.rubocop.executePath": "/usr/local/bundle/bin/",
+		// solargraph
+		"solargraph.useBundler": true,
+		"solargraph.diagnostics": true,
+		"solargraph.transport": "stdio",
+		"solargraph.commandPath": "/usr/local/bundle/bin/solargraph",
+		"solargraph.checkGemVersion": false,
+		// Material Icon Theme
+		"workbench.iconTheme": "material-icon-theme"
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"rebornix.ruby",
+		"kaiwood.endwise",
+		"misogi.ruby-rubocop",
+		"castwide.solargraph",
+		"hridoy.rails-snippets",
+		"aki77.rails-db-schema",
+		"adpyke.vscode-sql-formatter",
+		"PKief.material-icon-theme",
+		"donjayamanne.githistory",
+		"mhutchie.git-graph"
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [3111, 1111, 11111],
+
+	// Uncomment the next line if you want start specific services in your Docker Compose config.
+	// "runServices": [],
+
+	// Uncomment the next line if you want to keep your containers running after VS Code shuts down.
+	// "shutdownAction": "none",
+
+	// Uncomment the next line to run commands after the container is created - for example installing curl.
+	// "postCreateCommand": "apt-get update && apt-get install -y curl",
+
+	// Uncomment to connect as a non-root user if you've added one. See https://aka.ms/vscode-remote/containers/non-root.
+	// "remoteUser": "vscode"
+}

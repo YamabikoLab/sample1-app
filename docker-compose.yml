@@ -1,0 +1,68 @@
+version: '3'
+services:
+  sample1-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - TIME_ZONE=${TIME_ZONE}
+        - APP_ROOT=${APP_ROOT}
+    container_name: sample1_app
+    ports:
+      - '3111:3111'
+      - '1111:1111'
+      - '11111:11111'
+    environment:
+      - DATABASE_HOSTNAME=${DATABASE_HOSTNAME}
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_DB=${DATABASE_DB}
+    volumes:
+      - .:/usr/src/sample1_app
+      - ./tmp/bundle:/usr/local/bundle
+    depends_on:
+      - sample1_app_db
+    tty: true
+  #
+  # データベース
+  #
+  sample1_app_db:
+    image: mysql:5.7
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --explicit_defaults_for_timestamp --datadir=/var/lib/mysql/data
+    container_name: sample1_app_db
+    environment:
+      - MYSQL_DATABASE=${DATABASE_DB}
+      - MYSQL_ROOT_PASSWORD=${DATABASE_PASSWORD}
+      - TZ=${TIME_ZONE}
+    ports:
+      - '3133:3306'
+    volumes: 
+      - ./tmp/db:/var/lib/mysql/data
+  redis:
+    image: redis:6
+    networks:
+      - default
+    ports:
+      - '6111:6111'
+    volumes:
+      - ./tmp/redis:/data/redis
+    command: redis-server --port 6370
+  # phpMyAdmin
+  phpmyadmin:
+    container_name: sample1_app_phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    environment:
+    - PMA_ARBITRARY=1
+    - PMA_HOSTS=sample1_app_db
+    - PMA_USER=root
+    - PMA_PASSWORD=pass
+    ports:
+    - 8082:80
+  redisinsight:
+      image: redislabs/redisinsight:latest
+      ports:
+          - '8111:8111'
+      volumes:
+          - ./tmp/redisinsight:/db
+      depends_on:
+          - redis
