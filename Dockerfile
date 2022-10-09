@@ -20,7 +20,8 @@ RUN apt-get update -qq && \
     rm -rf /var/lib/apt/lists/*
 
 # https://github.com/nodesource/distributions
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
+RUN curl -fsSL https://deb.nodesource.com/setup_14
+.x | bash - \
     && apt-get install -y nodejs
 
 RUN npm install -g yarn

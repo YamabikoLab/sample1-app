@@ -58,11 +58,3 @@ services:
     - PMA_PASSWORD=pass
     ports:
     - 8082:80
-  redisinsight:
-      image: redislabs/redisinsight:latest
-      ports:
-          - '8111:8111'
-      volumes:
-          - ./tmp/redisinsight:/db
-      depends_on:
-          - redis
