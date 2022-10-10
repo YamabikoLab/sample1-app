@@ -44,7 +44,8 @@ bundle install
 6. リモートコンテナをReopenします。（※Rebuildする必要はありません）
 ![image](https://user-images.githubusercontent.com/88073693/194791096-795e1cf2-9106-4ff3-a49e-61c4638d781d.png)
 # 動作確認手順
-1. JSファイル(app/webpack/javascripts/hoge.js)にブレークポイントを設定します。
+1. JSファイル(app/webpack/javascripts/hoge.js)にブレークポイントを設定します。  
+このファイルのブレークポイントで停止させることが最大の目的です。
 ![image](https://user-images.githubusercontent.com/88073693/194791446-5db5682f-49f2-4ebe-a5d3-7d8901110f79.png)
 2. リモートコンテナ側のターミナルでnpm run watchを実行します。
 ```bash
