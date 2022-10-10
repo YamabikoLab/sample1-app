@@ -22,9 +22,8 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:3111",
-            "webRoot": "${workspaceFolder}",
-            "sourceMaps": true
+            "url": "http://localhost:3111/hoges",
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }

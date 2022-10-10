@@ -3,12 +3,12 @@
 module.exports = {
   entry: {
     app: [
-      './app/webpack/frontend/app.js'
+      './app/webpack/app.js'
     ]
   },
   output: {
     path: `${__dirname}/app/assets`,
-    filename: 'javascripts/webpack_frontend.js',
+    filename: 'javascripts/webpack_hoge.js',
   },
   resolve: {
     extensions: ['.js'],
