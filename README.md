@@ -1,7 +1,6 @@
 # vscodeによるJavaScriptデバッグのための調査アプリ
 # 概要
 このアプリケーションはvscodeによるJavaScirptをデバッグ実行するための調査用アプリケーションです。  
-https://github.com/YamabikoLab/sample1-app  
 手順に沿って実行すると、画面にhogeというウィンドウが表示されるだけのアプリケーションです。
 ![image](https://user-images.githubusercontent.com/88073693/194792450-177fcb74-4a93-4342-a094-0d10411ee0ee.png)
 
