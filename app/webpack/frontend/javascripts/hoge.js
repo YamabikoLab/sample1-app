@@ -1,6 +1,6 @@
-function HogeInit() {
+function Hoge() {
     console.log('HOGE!')
     alert('hoge');
 }
 
-export default HogeInit;
+export default Hoge;

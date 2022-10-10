@@ -1,5 +1,5 @@
-import HogeInit from "./javascripts/hoge_init";
+import Hoge from "./javascripts/hoge";
 
 window.app = {
-    HogeInit
+    Hoge
 }

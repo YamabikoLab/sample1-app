@@ -2,44 +2,14 @@
   "name": "sample1_app",
   "private": true,
   "dependencies": {
-    "floatthead": "^2.1.4",
-    "jquery": "^3.3.1",
-    "js-cookie": "^2.2.1",
-    "moment": "^2.24.0",
-    "trix": "^1.2.3"
+    "jquery": "^3.3.1"
   },
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch --mode=development"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/polyfill": "^7.8.7",
-    "@babel/preset-env": "^7.8.7",
-    "autoprefixer": "^9.7.4",
-    "babel-loader": "^8.0.5",
-    "css-loader": "^2.1.1",
-    "dom4": "^2.1.4",
-    "js-yaml": "^3.13.1",
-    "mini-css-extract-plugin": "^0.5.0",
-    "node-sass": "^4.13.1",
-    "postcss": "^8.3.3",
-    "postcss-loader": "^3.0.0",
-    "prettier": "^2.7.1",
-    "raw-loader": "^2.0.0",
-    "sass-loader": "^7.3.1",
-    "stickyfilljs": "^2.1.0",
-    "style-loader": "^0.23.1",
-    "stylelint": "^14.11.0",
-    "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard-scss": "^5.0.0",
-    "terser-webpack-plugin": "^1.4.3",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ]
   }
 }
